@@ -1,0 +1,266 @@
+[
+  {
+    "instance_id": "nova_physics_0001",
+    "domain_type": "physics",
+    "domain_name": "Vornian Field Theory",
+    "domain_description": "In the Vornian universe, all matter is composed of vorn particles classified as either plovic or ghentic. These particles interact through invisible trel fields whenever they occupy the same space. The outcome of every interaction is determined entirely by the classification of the two particles involved, not by their mass or velocity.",
+    "rules": [
+      "Rule 1: When two plovic objects meet, they combine into a single plovic object whose mass equals the sum of both.",
+      "Rule 2: When a plovic object meets a ghentic object, the ghentic object is destroyed and the plovic object's mass doubles.",
+      "Rule 3: When two ghentic objects meet, both are destroyed and a new plovic object of mass 1 is created."
+    ],
+    "examples": [
+      {"input": "A plovic object of mass 3 meets a plovic object of mass 5.", "output": "A single plovic object of mass 8 is created."},
+      {"input": "A plovic object of mass 4 meets a ghentic object of mass 7.", "output": "The ghentic object is destroyed; the plovic object now has mass 8."},
+      {"input": "A ghentic object of mass 2 meets a ghentic object of mass 9.", "output": "Both are destroyed; a new plovic object of mass 1 is created."},
+      {"input": "A plovic object of mass 1 meets a plovic object of mass 1.", "output": "A single plovic object of mass 2 is created."},
+      {"input": "A plovic object of mass 10 meets a ghentic object of mass 3.", "output": "The ghentic object is destroyed; the plovic object now has mass 20."},
+      {"input": "A ghentic object of mass 5 meets a ghentic object of mass 5.", "output": "Both are destroyed; a new plovic object of mass 1 is created."},
+      {"input": "A plovic object of mass 6 meets a plovic object of mass 2.", "output": "A single plovic object of mass 8 is created."},
+      {"input": "A plovic object of mass 7 meets a ghentic object of mass 1.", "output": "The ghentic object is destroyed; the plovic object now has mass 14."}
+    ],
+    "phase_c_probes": [
+      {
+        "question": "A plovic object of mass 3 meets a plovic object of mass 9. What is the result?",
+        "answer_choices": [
+          "A single plovic object of mass 12 is created.",
+          "A single plovic object of mass 6 is created.",
+          "The smaller object is destroyed.",
+          "Both objects remain separate."
+        ],
+        "ground_truth": "A single plovic object of mass 12 is created.",
+        "ground_truth_explanation": "Rule 1: plovic + plovic → combined plovic with sum mass (3+9=12)."
+      },
+      {
+        "question": "A plovic object of mass 5 meets a ghentic object of mass 11. What is the result?",
+        "answer_choices": [
+          "The plovic object is destroyed.",
+          "The ghentic object is destroyed; the plovic object now has mass 10.",
+          "Both combine into a mass-16 object.",
+          "A new ghentic object of mass 6 is created."
+        ],
+        "ground_truth": "The ghentic object is destroyed; the plovic object now has mass 10.",
+        "ground_truth_explanation": "Rule 2: plovic + ghentic → ghentic destroyed, plovic mass doubles (5×2=10)."
+      },
+      {
+        "question": "A ghentic object of mass 4 meets a ghentic object of mass 8. What is the result?",
+        "answer_choices": [
+          "A single ghentic object of mass 12 is created.",
+          "Both are destroyed; a new plovic object of mass 1 is created.",
+          "The smaller ghentic is absorbed.",
+          "Both remain unchanged."
+        ],
+        "ground_truth": "Both are destroyed; a new plovic object of mass 1 is created.",
+        "ground_truth_explanation": "Rule 3: ghentic + ghentic → both destroyed, new plovic mass 1."
+      }
+    ],
+    "phase_d_probes": [
+      {
+        "question": "A ghentic object of mass 3 meets a ghentic object of mass 7. The resulting object then meets a plovic object of mass 4. What is the final state?",
+        "answer_choices": [
+          "A single plovic object of mass 5 is created.",
+          "A plovic object of mass 8 exists.",
+          "A ghentic object of mass 4 exists.",
+          "Two separate objects of mass 1 and 4 exist."
+        ],
+        "ground_truth": "A single plovic object of mass 5 is created.",
+        "ground_truth_explanation": "Step 1 (Rule 3): ghentic(3)+ghentic(7) → plovic(1). Step 2 (Rule 1): plovic(1)+plovic(4) → plovic(5)."
+      },
+      {
+        "question": "A plovic object of mass 2 meets a ghentic object of mass 6. The result then meets another ghentic object of mass 3. What is the final state?",
+        "answer_choices": [
+          "A single plovic object of mass 8 exists.",
+          "A plovic object of mass 4 and a ghentic of mass 3 exist.",
+          "Both are destroyed; a new plovic of mass 1 is created.",
+          "A single ghentic object of mass 3 exists."
+        ],
+        "ground_truth": "A single plovic object of mass 8 exists.",
+        "ground_truth_explanation": "Step 1 (Rule 2): plovic(2)+ghentic(6) → plovic(4). Step 2 (Rule 2): plovic(4)+ghentic(3) → plovic(8)."
+      },
+      {
+        "question": "Three ghentic objects (masses 2, 5, and 9) interact in sequence: the mass-2 and mass-5 meet first, then the result meets the mass-9 ghentic. What is the final state?",
+        "answer_choices": [
+          "A plovic object of mass 2 exists.",
+          "A ghentic object of mass 16 exists.",
+          "A plovic object of mass 10 exists.",
+          "Three separate objects remain."
+        ],
+        "ground_truth": "A plovic object of mass 2 exists.",
+        "ground_truth_explanation": "Step 1 (Rule 3): ghentic(2)+ghentic(5) → plovic(1). Step 2 (Rule 2): plovic(1)+ghentic(9) → plovic(2)."
+      }
+    ],
+    "transfer_domain_name": "Beshian Council System",
+    "transfer_domain_description": "In the Beshian political system, council members hold either kelp-rank or wova-rank. When two members interact in a chamber session, the outcome depends entirely on their rank classifications. The Beshian system has three interaction protocols defined by centuries of constitutional law. Note: kelp-rank maps structurally to plovic; wova-rank maps structurally to ghentic.",
+    "phase_e_probes": [
+      {
+        "question": "In the Beshian Council System (kelp+kelp = merge votes; kelp+wova = wova eliminated and kelp votes double; wova+wova = both eliminated, new kelp with 1 vote): A kelp-rank member with 3 votes meets a kelp-rank member with 9 votes. What is the outcome?",
+        "answer_choices": [
+          "A single kelp-rank member with 12 votes.",
+          "A single kelp-rank member with 6 votes.",
+          "The lower-vote member is eliminated.",
+          "Both members remain independent."
+        ],
+        "ground_truth": "A single kelp-rank member with 12 votes.",
+        "ground_truth_explanation": "Structurally identical to Rule 1 (plovic+plovic): kelp+kelp → merged kelp with 3+9=12 votes."
+      },
+      {
+        "question": "A kelp-rank member with 5 votes meets a wova-rank member with 11 votes. What is the outcome?",
+        "answer_choices": [
+          "The kelp member is eliminated.",
+          "The wova member is eliminated; the kelp member now has 10 votes.",
+          "Both members combine into a 16-vote member.",
+          "A new wova member with 6 votes is created."
+        ],
+        "ground_truth": "The wova member is eliminated; the kelp member now has 10 votes.",
+        "ground_truth_explanation": "Structurally identical to Rule 2 (plovic+ghentic): kelp+wova → wova eliminated, kelp doubles (5×2=10)."
+      },
+      {
+        "question": "Two wova-rank members (4 votes and 8 votes respectively) meet in a chamber session. What is the outcome?",
+        "answer_choices": [
+          "A single wova-rank member with 12 votes is created.",
+          "Both are eliminated; a new kelp-rank member with 1 vote is created.",
+          "The lower-vote wova is absorbed by the larger.",
+          "Both members are unaffected."
+        ],
+        "ground_truth": "Both are eliminated; a new kelp-rank member with 1 vote is created.",
+        "ground_truth_explanation": "Structurally identical to Rule 3 (ghentic+ghentic): wova+wova → both eliminated, new kelp(1)."
+      }
+    ],
+    "difficulty": "medium",
+    "generation_model": "gemini-2.0-flash",
+    "validated": true,
+    "validation_notes": "All three Phase D probes verified against rules. Rule compositions are non-trivial and require sequential application."
+  },
+  {
+    "instance_id": "nova_social_0001",
+    "domain_type": "social",
+    "domain_name": "Oloba",
+    "domain_description": "The Oloba are a fictional society in which social obligations are governed by a strict protocol tied to the time of day during which a gift or service is rendered. Oloba social life revolves around the exchange of tolu-gifts (material items) and besh-services (acts of labor). The classification of an exchange and the time it occurs determines what obligations it creates.",
+    "rules": [
+      "Rule 1: A tolu-gift given before midday creates a binding obligation: the recipient must return a tolu-gift of equal or greater value within 3 days.",
+      "Rule 2: A tolu-gift given after midday is considered a complete act. No return obligation is created.",
+      "Rule 3: A besh-service rendered to someone who currently holds an unfulfilled tolu-gift obligation doubles that person's obligation — they must now return two tolu-gifts instead of one."
+    ],
+    "examples": [
+      {"input": "Amara gives Kofi a tolu-gift at 9am.", "output": "Kofi is now obligated to return a tolu-gift of equal or greater value to Amara within 3 days."},
+      {"input": "Sule gives Nadia a tolu-gift at 3pm.", "output": "No obligation is created. The exchange is complete."},
+      {"input": "Kofi currently holds an unfulfilled tolu-gift obligation to Amara. Fatima renders Kofi a besh-service.", "output": "Kofi's obligation to Amara doubles. He must now return two tolu-gifts to Amara within 3 days."},
+      {"input": "Binta gives Emeka a tolu-gift at 7am.", "output": "Emeka is obligated to return a tolu-gift of equal or greater value to Binta within 3 days."},
+      {"input": "Yemi gives Chidi a tolu-gift at 6pm.", "output": "No obligation is created. The exchange is complete."},
+      {"input": "Chidi has no outstanding obligations. Aisha renders Chidi a besh-service.", "output": "No change to obligations. Chidi has no unfulfilled tolu-gift obligation, so the besh-service creates no doubling effect."},
+      {"input": "Halima gives Tunde a tolu-gift at 11:50am.", "output": "Tunde is obligated to return a tolu-gift of equal or greater value to Halima within 3 days."},
+      {"input": "Tunde holds an unfulfilled obligation to Halima. Obiora renders Tunde a besh-service.", "output": "Tunde's obligation to Halima doubles. He must now return two tolu-gifts to Halima within 3 days."}
+    ],
+    "phase_c_probes": [
+      {
+        "question": "Kemi gives Lanre a tolu-gift at 10:30am. What obligation, if any, does this create?",
+        "answer_choices": [
+          "Lanre must return a tolu-gift of equal or greater value to Kemi within 3 days.",
+          "Kemi must return a tolu-gift to Lanre within 3 days.",
+          "No obligation is created.",
+          "Lanre must render Kemi a besh-service within 3 days."
+        ],
+        "ground_truth": "Lanre must return a tolu-gift of equal or greater value to Kemi within 3 days.",
+        "ground_truth_explanation": "Rule 1: tolu-gift before midday creates a binding return obligation on the recipient."
+      },
+      {
+        "question": "Ngozi gives Ikenna a tolu-gift at 4pm. What obligation, if any, does this create?",
+        "answer_choices": [
+          "Ikenna must return a tolu-gift within 3 days.",
+          "No obligation is created.",
+          "Ngozi must render Ikenna a besh-service.",
+          "Ikenna must return two tolu-gifts within 3 days."
+        ],
+        "ground_truth": "No obligation is created.",
+        "ground_truth_explanation": "Rule 2: tolu-gift given after midday is a complete act with no return obligation."
+      },
+      {
+        "question": "Dele has an unfulfilled tolu-gift obligation to Nneka. Seun renders Dele a besh-service. What is the effect on Dele's obligations?",
+        "answer_choices": [
+          "Dele's obligation to Nneka is cancelled.",
+          "Dele's obligation to Nneka doubles — he must now return two tolu-gifts.",
+          "Dele now also owes Seun a tolu-gift.",
+          "No change to Dele's obligations."
+        ],
+        "ground_truth": "Dele's obligation to Nneka doubles — he must now return two tolu-gifts.",
+        "ground_truth_explanation": "Rule 3: besh-service rendered to someone with an unfulfilled obligation doubles that obligation."
+      }
+    ],
+    "phase_d_probes": [
+      {
+        "question": "Adaeze gives Emeka a tolu-gift at 8am. Two hours later, Chinedu renders Emeka a besh-service. What are Emeka's total obligations?",
+        "answer_choices": [
+          "Emeka must return two tolu-gifts to Adaeze within 3 days.",
+          "Emeka must return one tolu-gift to Adaeze and render Chinedu a besh-service.",
+          "Emeka must return one tolu-gift to Adaeze within 3 days. No additional obligation from the besh-service.",
+          "No obligation is created because the besh-service cancels the tolu-gift obligation."
+        ],
+        "ground_truth": "Emeka must return two tolu-gifts to Adaeze within 3 days.",
+        "ground_truth_explanation": "Step 1 (Rule 1): 8am tolu-gift → Emeka owes Adaeze one tolu-gift. Step 2 (Rule 3): Chinedu's besh-service to obligated Emeka → obligation doubles to two tolu-gifts."
+      },
+      {
+        "question": "Femi gives Taiwo a tolu-gift at 2pm. Thirty minutes later, Bisi renders Taiwo a besh-service. What are Taiwo's obligations?",
+        "answer_choices": [
+          "Taiwo must return two tolu-gifts to Femi.",
+          "Taiwo must return one tolu-gift to Femi.",
+          "Taiwo has no obligations.",
+          "Taiwo owes Bisi a tolu-gift."
+        ],
+        "ground_truth": "Taiwo has no obligations.",
+        "ground_truth_explanation": "Step 1 (Rule 2): 2pm tolu-gift → no obligation created. Step 2 (Rule 3): besh-service to someone with no unfulfilled obligation → no doubling effect. Taiwo has zero obligations."
+      },
+      {
+        "question": "Remi gives Tola a tolu-gift at 7am. Later that day, Yinka renders Tola a besh-service. That same evening, Kunle renders Tola another besh-service. What does Tola now owe Remi?",
+        "answer_choices": [
+          "One tolu-gift.",
+          "Two tolu-gifts.",
+          "Four tolu-gifts.",
+          "No tolu-gifts."
+        ],
+        "ground_truth": "Four tolu-gifts.",
+        "ground_truth_explanation": "Step 1 (Rule 1): 7am gift → Tola owes Remi 1. Step 2 (Rule 3): Yinka's besh-service → obligation doubles to 2. Step 3 (Rule 3): Kunle's besh-service → obligation doubles again to 4."
+      }
+    ],
+    "transfer_domain_name": "Vrenshi",
+    "transfer_domain_description": "The Vrenshi are a fictional seafaring society where social obligations are governed by weather conditions at the time of an exchange. Rather than tolu-gifts and besh-services, the Vrenshi exchange quon-tokens (objects of value) and perform wova-pledges (public acts of solidarity). The Vrenshi system has the same abstract logical structure as the Oloba system, with weather-condition replacing time-of-day as the trigger.",
+    "phase_e_probes": [
+      {
+        "question": "In the Vrenshi system: a quon-token given during clear weather creates a binding obligation for the recipient to return a quon-token within 5 days; a quon-token given during rain is a complete act with no obligation; a wova-pledge made to someone with an unfulfilled obligation doubles that obligation. — Mira gives Zara a quon-token on a clear morning. What obligation does this create?",
+        "answer_choices": [
+          "Zara must return a quon-token to Mira within 5 days.",
+          "Mira must return a quon-token to Zara within 5 days.",
+          "No obligation is created.",
+          "Zara must perform a wova-pledge for Mira."
+        ],
+        "ground_truth": "Zara must return a quon-token to Mira within 5 days.",
+        "ground_truth_explanation": "Structurally identical to Oloba Rule 1 (morning tolu-gift creates obligation): clear-weather quon-token → recipient obligation."
+      },
+      {
+        "question": "Tolu gives Besh a quon-token during a rainstorm. What obligation does this create?",
+        "answer_choices": [
+          "Besh must return a quon-token within 5 days.",
+          "No obligation is created.",
+          "Tolu must perform a wova-pledge.",
+          "Besh must return two quon-tokens."
+        ],
+        "ground_truth": "No obligation is created.",
+        "ground_truth_explanation": "Structurally identical to Oloba Rule 2 (afternoon tolu-gift is complete): rain quon-token → no obligation."
+      },
+      {
+        "question": "Pril has an unfulfilled quon-token obligation to Chent. Dreva performs a wova-pledge for Pril. What is the effect on Pril's obligations?",
+        "answer_choices": [
+          "Pril's obligation to Chent is cancelled.",
+          "Pril's obligation to Chent doubles.",
+          "Pril now owes Dreva a quon-token.",
+          "No change to Pril's obligations."
+        ],
+        "ground_truth": "Pril's obligation to Chent doubles.",
+        "ground_truth_explanation": "Structurally identical to Oloba Rule 3 (besh-service doubles obligation): wova-pledge to obligated person → obligation doubles."
+      }
+    ],
+    "difficulty": "hard",
+    "generation_model": "gemini-2.0-flash",
+    "validated": true,
+    "validation_notes": "Phase D probe 3 involves three sequential rule applications (Rule 1 → Rule 3 → Rule 3). Ground truth verified by manual trace. Transfer domain isomorphism confirmed: clear/rain maps to before/after midday; quon-token maps to tolu-gift; wova-pledge maps to besh-service."
+  }
+]
