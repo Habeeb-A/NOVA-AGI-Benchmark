@@ -1,3 +1,4 @@
+"""
 NOVA Benchmark Generator
 ========================
 Novel domain Onboarding and Verification of Adaptation
