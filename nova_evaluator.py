@@ -1,3 +1,4 @@
+"""
 NOVA Benchmark Evaluator
 ========================
 Runs any model through NOVA instances and computes the three-component score:
